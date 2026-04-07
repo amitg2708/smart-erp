@@ -186,12 +186,11 @@ mongoose.connect(MONGO_URI)
     } catch (err) {
       logger.warn(`⚠️ Index warning: ${err.message}`);
     }
+const port = process.env.PORT || 4000
 
-    const PORT = process.env.PORT || 5000;
-
-    app.listen(PORT, '0.0.0.0', () => {
-      logger.info(`🚀 Server running on port ${PORT}`);
-    });
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Example app listening on port ${port}`)
+})
   })
   .catch(err => {
     logger.error(`❌ MongoDB connection error: ${err.message}`);
